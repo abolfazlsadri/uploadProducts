@@ -19,7 +19,7 @@ class ProductService implements ProductInterface
 
     public function gets(array $request)
     {   
-        $query = Product::search('*')->get();
+        $query = Product::query();
 
         if (!empty($request['category_id'])) {
             $query->where('category_id', $request['category_id']);
