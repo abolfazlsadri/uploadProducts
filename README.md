@@ -19,7 +19,21 @@ $ php artisan migrate
 $ php artisan passport:install
 $ php artisan db:seed
 $ php artisan serve
-$ php artisan queue:work --queue=insertproduct
+```
+
+# Configuring Supervisor
+
+```sh
+#super[program:laravel-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /home/forge/uploadProducts/artisan queue:work sqs --queue=insertproduct --sleep=3 --tries=3 --max-time=3600
+autostart=true
+autorestart=true
+user=forge
+numprocs=8
+redirect_stderr=true
+stdout_logfile=/home/forge/uploadProducts/worker.log
+stopwaitsecs=3600
 ```
 
 # swagger 
