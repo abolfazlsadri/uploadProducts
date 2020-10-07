@@ -1,6 +1,6 @@
 # Upload products
 
-> [PHP](https://php.net) API for an Upload products service with mysql.
+> [PHP](https://php.net) API for an Upload products service with mysql and redis queue.
 
 ## Task Description:
   - Implement a upload product system API.
