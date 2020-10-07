@@ -29,8 +29,8 @@ class UserController extends Controller
      *    description="Pass user credentials",
      *    @OA\JsonContent(
      *       required={"email","password"},
-     *       @OA\Property(property="email", type="string", format="email", example="user1@mail.com"),
-     *       @OA\Property(property="password", type="string", format="password", example="PassWord12345"),
+     *       @OA\Property(property="email", type="string", format="email", example="admin@app.com"),
+     *       @OA\Property(property="password", type="string", format="password", example="134679"),
      *    ),
      * ),
      * @OA\Response(
@@ -55,14 +55,17 @@ class UserController extends Controller
      *     tags={"user"},
      *     operationId="create user",
      *     description="",
-     *     @OA\RequestBody(
-     *         description="User object that needs to be added to the store",
-     *         required=true,
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(ref="#/components/schemas/User")
-     *         )
-     *     ),
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass user credentials",
+     *    @OA\JsonContent(
+     *       required={"name", "email", "password", "c_password"},
+     *      @OA\Property(property="name", type="string"),
+     *       @OA\Property(property="email", type="string", pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", format="email", example="admin@app.com"),
+     *       @OA\Property(property="password", type="string", format="password", example="134679"),
+     *       @OA\Property(property="c_password", type="string", format="password", example="134679"),
+     *    ),
+     * ),
      *     @OA\Response(
      *         response=200,
      *         description="success",
@@ -92,10 +95,13 @@ class UserController extends Controller
      *     @OA\RequestBody(
      *         description="Admin object that needs to be added to the store",
      *         required=true,
-     *         @OA\MediaType(
-     *             mediaType="application/json",
-     *             @OA\Schema(ref="#/components/schemas/User")
-     *         )
+     *      @OA\JsonContent(
+     *          required={"name", "email", "password", "c_password"},
+     *          @OA\Property(property="name", type="string"),
+     *          @OA\Property(property="email", type="string", pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", format="email", example="admin@app.com"),
+     *          @OA\Property(property="password", type="string", format="password", example="134679"),
+     *          @OA\Property(property="c_password", type="string", format="password", example="134679"),
+     *      ),
      *     ),
      *     @OA\Response(
      *         response=200,

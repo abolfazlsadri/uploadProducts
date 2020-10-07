@@ -256,12 +256,12 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "user1@mail.com"
+                                        "example": "admin@app.com"
                                     },
                                     "password": {
                                         "type": "string",
                                         "format": "password",
-                                        "example": "PassWord12345"
+                                        "example": "134679"
                                     }
                                 },
                                 "type": "object"
@@ -297,12 +297,39 @@
                 "description": "",
                 "operationId": "create user",
                 "requestBody": {
-                    "description": "User object that needs to be added to the store",
+                    "description": "Pass user credentials",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/User"
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "c_password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
+                                        "example": "admin@app.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "134679"
+                                    },
+                                    "c_password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "134679"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }
@@ -330,7 +357,34 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/User"
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "c_password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
+                                        "example": "admin@app.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "134679"
+                                    },
+                                    "c_password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "134679"
+                                    }
+                                },
+                                "type": "object"
                             }
                         }
                     }
@@ -464,36 +518,6 @@
                         "type": "string",
                         "format": "date-time",
                         "readOnly": "true"
-                    }
-                },
-                "type": "object"
-            },
-            "User": {
-                "required": [
-                    "name",
-                    "password",
-                    "c_password",
-                    "email"
-                ],
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "email": {
-                        "type": "string",
-                        "format": "email",
-                        "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$",
-                        "example": "user2@gmail.com"
-                    },
-                    "password": {
-                        "type": "string",
-                        "format": "password",
-                        "example": "PassWord12345"
-                    },
-                    "c_password": {
-                        "type": "string",
-                        "format": "password",
-                        "example": "PassWord12345"
                     }
                 },
                 "type": "object"

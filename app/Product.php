@@ -11,7 +11,7 @@ use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use Searchable;
+    // use Searchable;
 
     protected $fillable = [
         'name',
@@ -50,5 +50,10 @@ class Product extends Model
      * @OA\Property(property="updated_at", type="string", format="date-time", description="Last update timestamp", readOnly="true")   
      */
     protected $updated_at;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }

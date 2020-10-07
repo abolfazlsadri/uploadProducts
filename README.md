@@ -18,9 +18,17 @@ $ php artisan key:generate
 $ php artisan migrate
 $ php artisan passport:install
 $ php artisan db:seed
+$ php artisan serve
 $ php artisan queue:work --queue=insertproduct
 ```
 
 # swagger 
 
 >http://localhost:8000/api/documentation
+
+
+# Upload CSV
+
+```sh
+NOTE: category_id In the csv file, its value must be in the category table
+```
